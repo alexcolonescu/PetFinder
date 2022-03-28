@@ -22,10 +22,10 @@ public class Owner {
     @Column(nullable = false)
     private String lastName;
 
-//    @ToString.Exclude
-//    @ManyToMany(mappedBy = "owners")
-//    private Set<Pet> pets;
+    @ToString.Exclude
+    @ManyToMany(mappedBy = "owners")
+    private Set<Pet> pets;
 
-    //@OneToOne
-    //private ContactDetails contactDetails;
+    @OneToOne
+    private ContactDetails contactDetails;
 }
