@@ -1,6 +1,8 @@
 package petFinder.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -24,8 +26,9 @@ public class Owner {
 
     @ToString.Exclude
     @ManyToMany(mappedBy = "owners")
+    @JsonIgnore
     private Set<Pet> pets;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private ContactDetails contactDetails;
 }
