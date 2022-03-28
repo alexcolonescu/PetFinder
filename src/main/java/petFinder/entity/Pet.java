@@ -1,5 +1,7 @@
 package petFinder.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -17,13 +19,6 @@ public class Pet {
     @GeneratedValue
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    @ElementCollection(targetClass = Breed.class)
-    private Set<Breed> breed;
-
-    @ManyToMany
-    private Set<Owner> owners;
-
     @Column(nullable = false)
     private int age;
 
@@ -38,5 +33,13 @@ public class Pet {
 
     @Column(nullable = false)
     private String description;
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+    @JsonIgnore
+    private Set<Owner> owners;
+
+    @Enumerated(EnumType.STRING)
+    @ElementCollection(targetClass = Breed.class)
+    private Set<Breed> breed;
 
 }
