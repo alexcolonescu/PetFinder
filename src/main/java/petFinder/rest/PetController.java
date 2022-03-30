@@ -34,7 +34,9 @@ public class PetController {
     }
 
     @GetMapping(value = "/pet/breed/{breed}")
-    public Set<Pet> getPetByName(@PathVariable String breed){
-        return petRepository.findByBreed(breed);
+    public Set<Pet> getPetByName(@PathVariable(name = "breed") String breed){
+        return petRepository.findByBreedLike(breed);
     }
+
+
 }

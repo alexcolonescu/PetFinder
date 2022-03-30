@@ -10,6 +10,6 @@ import java.util.Set;
 @Repository
 public interface PetRepository extends JpaRepository<Pet, Long> {
 
-    Set<Pet> findByBreed(String breed);
+    Set<Pet> findByBreedLike(String breed);
 
 }
