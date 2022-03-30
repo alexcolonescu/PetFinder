@@ -23,6 +23,9 @@ public class Pet {
     private int age;
 
     @Column(nullable = false)
+    private String breed;
+
+    @Column(nullable = false)
     private double weight;
 
     @Column(nullable = false)
