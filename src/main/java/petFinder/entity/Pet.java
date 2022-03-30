@@ -16,7 +16,7 @@ import java.util.Set;
 public class Pet {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
@@ -37,8 +37,12 @@ public class Pet {
     @Column(nullable = false)
     private String description;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
-    @JsonIgnore
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "pet_owners",
+            joinColumns = @JoinColumn(name = "pets_id"),
+            inverseJoinColumns = @JoinColumn(name = "owners_id")
+    )
     private Set<Owner> owners;
 
     @Enumerated(EnumType.STRING)
