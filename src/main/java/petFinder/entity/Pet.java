@@ -39,7 +39,7 @@ public class Pet {
     private Set<Owner> owners;
 
     @Enumerated(EnumType.STRING)
-    @ElementCollection(targetClass = Breed.class)
-    private Set<Breed> breed;
+    @ElementCollection(targetClass = City.class)
+    private Set<City> city;
 
 }
