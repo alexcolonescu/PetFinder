@@ -22,9 +22,6 @@ public class ContactDetails {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false)
-    private String city;
-
     @OneToOne (mappedBy = "contactDetails")
     private Owner owner;
 
