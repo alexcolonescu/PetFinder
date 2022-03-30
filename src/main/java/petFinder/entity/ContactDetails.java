@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class ContactDetails {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false, length = 10, unique = true)
