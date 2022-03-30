@@ -7,6 +7,7 @@ import petFinder.repository.OwnerRepository;
 import petFinder.repository.PetRepository;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 public class PetController {
@@ -30,5 +31,10 @@ public class PetController {
     @DeleteMapping(value = "/pet/{id}")
     public void deletePet(@PathVariable Long id){
         petRepository.deleteById(id);
+    }
+
+    @GetMapping(value = "/pet/breed/{breed}")
+    public Set<Pet> getPetByName(@PathVariable String breed){
+        return petRepository.findByBreed(breed);
     }
 }
