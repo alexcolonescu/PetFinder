@@ -1,10 +1,7 @@
 package petFinder.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import petFinder.entity.Pet;
 import petFinder.repository.OwnerRepository;
 import petFinder.repository.PetRepository;
@@ -25,8 +22,13 @@ public class PetController {
         return petRepository.save(pet);
     }
 
-    @GetMapping(value = "pet/all")
+    @GetMapping(value = "/pet/all")
     public List<Pet> getAllPets(){
         return petRepository.findAll();
+    }
+
+    @DeleteMapping(value = "/pet/{id}")
+    public void deletePet(@PathVariable Long id){
+        petRepository.deleteById(id);
     }
 }
