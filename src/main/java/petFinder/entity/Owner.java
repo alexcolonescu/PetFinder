@@ -29,6 +29,6 @@ public class Owner {
     @JsonIgnore
     private Set<Pet> pets;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     private ContactDetails contactDetails;
 }
