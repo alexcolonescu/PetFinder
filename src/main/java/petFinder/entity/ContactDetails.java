@@ -1,5 +1,6 @@
 package petFinder.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -23,6 +24,7 @@ public class ContactDetails {
     private String email;
 
     @OneToOne (mappedBy = "contactDetails")
+    @JsonIgnore
     private Owner owner;
 
 }
