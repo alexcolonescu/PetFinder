@@ -37,7 +37,7 @@ public class Pet {
     @Column(nullable = false)
     private String description;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @ManyToMany
     @JoinTable(
             name = "pet_owners",
             joinColumns = @JoinColumn(name = "pets_id"),
@@ -48,5 +48,6 @@ public class Pet {
     @Enumerated(EnumType.STRING)
     @ElementCollection(targetClass = City.class)
     private Set<City> city;
+
 
 }
