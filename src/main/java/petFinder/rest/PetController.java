@@ -54,7 +54,7 @@ public class PetController {
     }
 
     @GetMapping(value = "/pet/breed")
-    public Set<Pet> getPetByName(@RequestParam(name = "breed") String breed){
+    public Set<Pet> getPetByBreed(@RequestParam(name = "breed") String breed){
         return petRepository.findByBreedContaining(breed);
     }
 
