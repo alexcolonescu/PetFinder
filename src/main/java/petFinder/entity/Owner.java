@@ -24,6 +24,9 @@ public class Owner {
     @Column(nullable = false)
     private String lastName;
 
+    @Column(nullable = false, length = 30, unique = true)
+    private String email;
+
     @OneToOne
     private ContactDetails contactDetails;
 

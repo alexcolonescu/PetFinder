@@ -40,6 +40,7 @@ public class MyUser implements UserDetails {
     @OneToOne(cascade = CascadeType.ALL)
     private ContactDetails contactDetails;
 
+    @Column(nullable = false, length = 30, unique = true)
     private String email;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -58,6 +59,7 @@ public class MyUser implements UserDetails {
         this.username = user.getUsername();
         this.fullName = user.getFullName();
         this.id = user.getId();
+        this.email = user.getEmail();
         this.accountNonExpired = user.isAccountNonExpired();
         this.accountNonLocked = user.isAccountNonLocked();
         this.credentialsNonExpired = user.isCredentialsNonExpired();
