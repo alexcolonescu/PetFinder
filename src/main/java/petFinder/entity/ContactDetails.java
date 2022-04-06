@@ -23,8 +23,11 @@ public class ContactDetails {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @OneToOne (mappedBy = "contactDetails")
+    @OneToOne(mappedBy = "contactDetails")
     @JsonIgnore
     private Owner owner;
 
+    @OneToOne(mappedBy = "contactDetails")
+    @JsonIgnore
+    private MyUser user;
 }
