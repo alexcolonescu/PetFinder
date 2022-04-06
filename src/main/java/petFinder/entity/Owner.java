@@ -24,11 +24,12 @@ public class Owner {
     @Column(nullable = false)
     private String lastName;
 
+    @OneToOne
+    private ContactDetails contactDetails;
+
     @ToString.Exclude
     @ManyToMany(mappedBy = "owners")
     @JsonIgnore
     private Set<Pet> pets;
 
-    @OneToOne
-    private ContactDetails contactDetails;
 }
