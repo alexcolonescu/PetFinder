@@ -49,5 +49,6 @@ public class Pet {
     @ElementCollection(targetClass = City.class)
     private Set<City> city;
 
-
+    @ManyToOne
+    private MyUser user;
 }
