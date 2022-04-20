@@ -37,6 +37,9 @@ public class Pet {
     @Column(nullable = false)
     private String description;
 
+    @Column
+    private boolean available;
+
     @ManyToMany
     @JoinTable(
             name = "pet_owners",

@@ -20,7 +20,7 @@ public class ContactDetails {
     @Column(nullable = false, length = 10, unique = true)
     private String phoneNumber;
 
-    @OneToOne(mappedBy = "contactDetails")
+    @OneToOne(mappedBy = "contactDetails", cascade = CascadeType.ALL)
     @JsonIgnore
     private Owner owner;
 

@@ -35,6 +35,7 @@ public class MyUser implements UserDetails {
     @Column(name = "enabled", nullable = false)
     private boolean enabled;
 
+    @Column(nullable = false, length = 30)
     private String fullName;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -51,6 +52,9 @@ public class MyUser implements UserDetails {
 
     @OneToMany(mappedBy = "user")
     private Set<Pet> pets;
+
+    @Transient
+    private String passwordConfirm;
 
     public MyUser(MyUser user){
         this.enabled = user.isEnabled();
@@ -168,5 +172,13 @@ public class MyUser implements UserDetails {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
     }
 }
