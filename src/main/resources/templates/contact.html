@@ -16,21 +16,12 @@
                 <a class="nav-link" href="/index">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/book/all">Pets</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Breed</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Food</a>
-            </li>
-                        <li class="nav-item">
-                <a class="nav-link" href="#">Buy a dog</a>
+                <a class="nav-link" href="/pet/all">Pets</a>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/contact">Contact</a>
+                <a class="nav-link" th:href="@{/contact}">Contact</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -39,11 +30,9 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Profile</a>
-                    <a class="dropdown-item" href="#">Best selling breed</a>
-                    <a class="dropdown-item" href="#">Best selling food for dog</a>
-
+                    <a class="dropdown-item" href="#">View borrowed pets</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/register">Logout</a>
+                    <a class="dropdown-item" th:href="@{/logout}">Logout</a>
                 </div>
             </li>
         </ul>
@@ -52,9 +41,9 @@
 <section class="contact">
     <div class="content">
         <h2 align="center">Contact us</h2>
-        <p>.</p>
-        <p> .</p>
     </div>
+    <br>
+    <br>
     <div class="container">
         <div class="contactInfo">
             <div class="box">
@@ -79,8 +68,8 @@
                 </div>
             </div>
             <div class="addressMap">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21703.163121862865!2d27.544792885092285!3d47.15990319673218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cae4c8151fe80b%3A0x9cf31fc85391ffff!2sAnimax!5e0!3m2!1sen!2sro!4v1649512823424!5m2!1sen!2sro" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                        width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21703.163121862865!2d27.544792885092285!3d47.15990319673218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cae4c8151fe80b%3A0x9cf31fc85391ffff!2sAnimax!5e0!3m2!1sen!2sro!4v1649512823424!5m2!1sen!2sro"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </div>
