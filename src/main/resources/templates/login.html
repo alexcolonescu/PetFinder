@@ -14,8 +14,8 @@
 <br>
 <div class="container" align="center">
 
-  <div class="alert alert-danger" role="alert">
-    <p th:if="${loginError}" class="error">Wrong user or password</p>
+  <div th:if="${loginError}" class="alert alert-danger" role="alert">
+    <p class="error">Wrong user or password</p>
   </div>
 
 
