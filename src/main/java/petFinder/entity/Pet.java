@@ -2,9 +2,7 @@ package petFinder.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -13,6 +11,8 @@ import java.util.Set;
 @Getter
 @Setter
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Pet {
 
     @Id
@@ -40,6 +40,8 @@ public class Pet {
     @Column
     private boolean available;
 
+
+
     @ManyToMany
     @JoinTable(
             name = "pet_owners",
@@ -55,3 +57,5 @@ public class Pet {
     @ManyToOne
     private MyUser user;
 }
+
+

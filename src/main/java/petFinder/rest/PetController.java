@@ -11,12 +11,37 @@ import petFinder.exceptions.ContactsAlreadyExist;
 import petFinder.repository.ContactDetailsRepository;
 import petFinder.repository.OwnerRepository;
 import petFinder.repository.PetRepository;
+import petFinder.service.impl.PetService;
 
 import java.util.List;
 import java.util.Set;
 
 @Controller
 public class PetController {
+    @Autowired
+    private PetService service;
+
+    @RequestMapping("/")
+    public String viewHomePage(Model model){
+        List<Pet> listPets = service.listAll();
+        model.addAttribute("listPets",listPets);
+        return "index";
+    }
+
+    @RequestMapping("/new")
+    public String showNewProductForm(Model model){
+        Pet pet = new Pet();
+        model.addAttribute("pet",pet);
+
+        return "new_pet";
+
+    }
+    @RequestMapping(value = "/save", method =RequestMethod.POST)
+    public String petSave(@ModelAttribute("pet")Pet pet){
+        service.save(pet);
+        return "index";
+    }
+
 
     @Autowired
     private PetRepository petRepository;
