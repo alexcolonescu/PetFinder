@@ -46,8 +46,6 @@ public class Pet {
     @Column
     private LocalDateTime dateIn;
 
-
-
     @ManyToMany
     @JoinTable(
             name = "pet_owners",
