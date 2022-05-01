@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <title>All Pets</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -67,8 +67,10 @@
                 <th scope="col">Vaccinated</th>
                 <th scope="col">Price</th>
                 <th scope="col">Description</th>
-                <th scope="col">Add<br> Date</br></th>
-                <th scope="col">Action</th>
+                <th scope="col">Added Date</br></th>
+                <div sec:authorize="hasRole('ROLE_ADMIN')">
+                    <th scope="col">Action</th>
+                </div>
 
 
             </tr>
@@ -84,12 +86,18 @@
 
 
                 <td th:text="${pet.description}"></td>
-                <td th:text="${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm')}"></td>
-                <td>
-               <a th:href="@{'/edit/' + ${pet.id}}">Edit</a>
-                    &nbsp; &nbsp; &nbsp; &nbsp;
-                    <a th:href="@{'/delete/' + ${pet.id}}">Delete</a>
-                </td>
+                <td th:text="${pet.date}"></td>
+
+                    <div sec:authorize="hasRole('ROLE_ADMIN')">
+                        <td>
+                       <a th:href="@{'/edit/' + ${pet.id}}">Edit</a>
+                            &nbsp; &nbsp; &nbsp; &nbsp;
+                            <a th:href="@{'/delete/' + ${pet.id}}">Delete</a>
+                        </td>
+                    </div>
+
+
+
 
 
 

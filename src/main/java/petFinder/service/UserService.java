@@ -1,23 +1,23 @@
 package petFinder.service;
 
 import org.springframework.stereotype.Service;
-import petFinder.entity.MyUser;
+import petFinder.entity.User;
 
 import java.util.List;
 
 @Service
 public interface  UserService {
 
-    MyUser findUserByEmail(String email);
+    User findUserByEmail(String email);
 
-    MyUser findUserByUserName(String userName);
+    User findUserByUserName(String userName);
 
     boolean findUserByUserNameAndPassword(String userName, String password);
 
-    List<MyUser> findAll();
+    List<User> findAll();
 
     void deleteById(long id);
 
-    MyUser saveUser(MyUser u);
+    User saveUser(User u);
 
 }

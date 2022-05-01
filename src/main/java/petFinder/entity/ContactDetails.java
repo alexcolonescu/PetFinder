@@ -26,5 +26,5 @@ public class ContactDetails {
 
     @OneToOne(mappedBy = "contactDetails")
     @JsonIgnore
-    private MyUser user;
+    private User user;
 }

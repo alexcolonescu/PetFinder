@@ -3,12 +3,11 @@ package petFinder.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import petFinder.entity.MyUser;
+import petFinder.entity.User;
 import petFinder.entity.Role;
 import petFinder.service.UserService;
 
@@ -27,7 +26,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException{
-        MyUser user = userService.findUserByUserName(userName);
+        User user = userService.findUserByUserName(userName);
         List<GrantedAuthority> authorities = getUserAuthority(user.getRoles());
         return buildUserForAuthentication(user, authorities);
     }
@@ -40,8 +39,8 @@ public class CustomUserDetailsService implements UserDetailsService {
         return new ArrayList<>(roles);
     }
 
-    private UserDetails buildUserForAuthentication(MyUser myUser, List<GrantedAuthority> authorities){
-        return new User(myUser.getUsername(), myUser.getPassword(), myUser.isEnabled(),
+    private UserDetails buildUserForAuthentication(User user, List<GrantedAuthority> authorities){
+        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), user.isEnabled(),
                 true, true, true, authorities);
     }
 }

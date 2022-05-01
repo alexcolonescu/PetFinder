@@ -1,12 +1,10 @@
 package petFinder.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -44,7 +42,8 @@ public class Pet {
     private boolean available;
 
     @Column
-    private LocalDateTime dateIn;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime date;
 
     @ManyToMany
     @JoinTable(
@@ -59,7 +58,7 @@ public class Pet {
     private Set<City> city;
 
     @ManyToOne
-    private MyUser user;
+    private User user;
 }
 
 

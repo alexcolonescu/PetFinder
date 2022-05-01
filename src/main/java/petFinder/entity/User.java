@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 @Entity
 @NoArgsConstructor
-public class MyUser implements UserDetails {
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue
@@ -56,7 +56,7 @@ public class MyUser implements UserDetails {
     @Transient
     private String passwordConfirm;
 
-    public MyUser(MyUser user){
+    public User(User user){
         this.enabled = user.isEnabled();
         this.contactDetails = user.getContactDetails();
         this.roles = user.getRoles();

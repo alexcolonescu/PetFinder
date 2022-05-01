@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <title>Pet Finder</title>
     <link rel="icon" type="image/png" th:href="@{/images/icons/dog.ico}">
@@ -21,12 +21,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="/pet/all">Pets</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="new">Add pet</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="/edit">Edit pet</a>
-            </li>
+
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
@@ -53,11 +48,12 @@
     <br/>
     <form action="#" th:action="@{/save}" th:object="${pet}" method="post">
         <table border="0" cellpadding="10">
-            <tr>
-            <tr>
+
+            <tr style="display:none;">
                 <td>Product ID</td>
                 <td><input type="text" th:field="*{id}" readonly="readonly"/></td>
             </tr>
+
             <tr>
                 <td>Breed</td>
                 <td><input type="text" th:field="*{breed}"/></td>
@@ -89,7 +85,6 @@
             </tr>
             <tr>
                 <td colspan="2"><button type="submit">Save</button> </td>
-            </tr>
             </tr>
         </table>
     </form>

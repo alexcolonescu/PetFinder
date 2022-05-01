@@ -28,7 +28,7 @@ public class PetService {
      return repo.findById(id).get();
     }
 
-    public void delete (Long id){
+    public void delete(Long id){
         repo.deleteById(id);
     }
 
