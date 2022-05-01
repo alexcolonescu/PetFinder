@@ -3,8 +3,11 @@ package petFinder.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
@@ -39,6 +42,9 @@ public class Pet {
 
     @Column
     private boolean available;
+
+    @Column
+    private LocalDateTime dateIn;
 
 
 

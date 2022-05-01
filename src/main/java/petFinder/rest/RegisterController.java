@@ -31,7 +31,7 @@ public class RegisterController {
     public String registerUser(@ModelAttribute("user") @RequestBody MyUser user) {
         if (user.getPassword().equalsIgnoreCase(user.getPasswordConfirm())) {
             userService.saveUser(user);
-            return "register-success";
+            return "login";
         } else {
             return "register";
         }

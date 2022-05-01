@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import petFinder.entity.ContactDetails;
 import petFinder.entity.Owner;
 import petFinder.entity.Pet;
@@ -13,6 +14,7 @@ import petFinder.repository.OwnerRepository;
 import petFinder.repository.PetRepository;
 import petFinder.service.impl.PetService;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
@@ -21,12 +23,12 @@ public class PetController {
     @Autowired
     private PetService service;
 
-    @RequestMapping("/")
+    /*@RequestMapping("/")
     public String viewHomePage(Model model){
         List<Pet> listPets = service.listAll();
         model.addAttribute("listPets",listPets);
         return "index";
-    }
+    }*/
 
     @RequestMapping("/new")
     public String showNewProductForm(Model model){
@@ -41,6 +43,25 @@ public class PetController {
         service.save(pet);
         return "index";
     }
+
+    @RequestMapping("/edit/{id}")
+    public ModelAndView showEditProductForm(@PathVariable(name = "id")Long id){
+        ModelAndView mav = new ModelAndView("edit_pet");
+
+        Pet pet = service.get(id);
+        mav.addObject("pet", pet );
+
+        return mav;
+
+    }
+    @RequestMapping("/delete/{id}")
+    public String deletePet(@PathVariable(name = "id")Long id){
+        service.delete(id);
+
+        return "redirect:/";
+
+    }
+
 
 
     @Autowired
@@ -78,15 +99,19 @@ public class PetController {
         return "all-pets";
     }
 
-    @DeleteMapping(value = "/pet/{id}")
-    public void deletePet(@PathVariable Long id){
-        petRepository.deleteById(id);
-    }
+//    @DeleteMapping(value = "/pet/{id}")
+//    public void deletePet(@PathVariable Long id){
+//        petRepository.deleteById(id);
+//    }
 
     @GetMapping(value = "/pet/breed")
     public Set<Pet> getPetByBreed(@RequestParam(name = "breed") String breed){
         return petRepository.findByBreedContaining(breed);
     }
+
+
+
+
 
 
 }

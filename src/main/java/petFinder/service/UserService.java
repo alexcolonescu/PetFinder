@@ -6,7 +6,7 @@ import petFinder.entity.MyUser;
 import java.util.List;
 
 @Service
-public interface UserService {
+public interface  UserService {
 
     MyUser findUserByEmail(String email);
 
