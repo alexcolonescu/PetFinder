@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>About PetFinder</title>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" th:href="@{/images/icons/dog.ico}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQnN" crossorigin="anonymous">
+    <style>
+        .starter-template {
+          padding: 3rem 1.5rem;
+          text-align: center;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/index">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/about">About PetFinder</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/pet/all">Pets</a>
+            </li>
+
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/contact}">Contact</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    User menu
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Profile</a>
+                    <a class="dropdown-item" href="#">View borrowed pets</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" th:href="@{/logout}">Logout</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+<br><br>
+    <div class="starter-template">
+        <h1>About PetFinder</h1>
+        <img src='images/about.jpg' class="img-fluid"/>
+    </div>
+
+    <p>
+        A pet can be a reliable friend to anyone. Unconditional moral support, better immunity, and the urge to live an active life are just some of the benefits that a pet brings to a family's life.
+        <br><br>
+        Adopting a pet is a great idea that brings many benefits to both the future owner and the community.
+        <br><br>
+        Here is a list of the top 5 reasons why it is better to adopt than to buy a pet:
+        <ol>
+
+    <li>You save two lives</li>
+        Adopting a pet from a shelter involves creating a free space for another animal that can also take care of the shelter. So when you adopt, you not only save the life of your new companion but also give a chance at life for another soul.
+
+        In private shelters, dogs are received and cared for the rest of their lives, a new place is released when a dog is adopted or dies.
+
+        In state shelters, however, things are not as good, if a puppy is not adopted within 14 days, he must be euthanized, according to the law.
+
+    <li>Fight the illegal trade in pets</li>
+        By 2020, around 46,000 dogs have been traded between EU countries each month, most of them unregistered. In addition to threatening public health and animal welfare, the illegal trade in pets has also become a major source of income for international organized crime.
+
+        As in any other field, the offer of illegal trade in pets is given by demand, so with every adoption in a shelter, an animal is saved from illegal trade.
+
+    <li>Adopted animals have fewer health problems</li>
+        Most dogs that end up in shelters in Romania are known as "strays" or "half-breeds", which means they have a better genetic background and fewer health problems. Living on the streets, they have become more adaptable and balanced, with a longer life expectancy than other breeds.
+
+    <li>It could be free</li>
+    The pandemic has changed people's behavior regarding the need for interaction and moral support, so some studies say that the population's interest in a pet increased by 155% during the pandemic.
+
+    In Romania, the acquisition cost for the most popular dog breeds reaches somewhere around 1,500 lei.
+
+    However, these are not the only amounts that must be taken into account, for sterilization, microchipping and training, a cost of 1,350 lei is added in the case of puppies and 500 lei in the case of cats.
+
+    These costs decrease to 0 when it comes to adopting a pet in Romania. There are many animal shelters that deal with microchipping, vaccination, sterilization and deworming of animals. Thus, these costs disappear for those who decide to adopt, the only expenses that must be taken into account are those for the care and maintenance of the pet.
+
+    <li>You can be an example to those around you</li>
+        We know the impact that personal example has on our daily lives and that is why, during the holidays, together with our friends and colleagues from PetFinder, we participated in the campaign to save stray dogs.
+
+        </ol>
+        The "green viruses" adopted shelter dogs and in turn urged other animal lovers to adopt, resulting in a record number of adoptions during this period. A lot of puppies got a second chance, being adopted by loving families with whom they will continue their happy life.
+        <br><br>
+
+        In this way, we urge you to choose the adoption of animals instead of the purchase and to urge all acquaintances to do the same. There are thousands of animals in the shelters in Romania, which start every day with the hope that today will be the day when they will meet their new owners, who will love them until the end of their lives.
+
+    </p>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
