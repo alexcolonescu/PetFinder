@@ -12,6 +12,8 @@ import java.util.Set;
 @Getter
 @Setter
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Owner {
 
     @Id
@@ -31,7 +33,7 @@ public class Owner {
     private ContactDetails contactDetails;
 
     @ToString.Exclude
-    @ManyToMany(mappedBy = "owners")
+    @OneToMany(mappedBy = "owners")
     @JsonIgnore
     private Set<Pet> pets;
 

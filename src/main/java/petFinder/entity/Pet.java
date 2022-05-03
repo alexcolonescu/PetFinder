@@ -45,7 +45,7 @@ public class Pet {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime date;
 
-    @ManyToMany
+    @OneToMany
     @JoinTable(
             name = "pet_owners",
             joinColumns = @JoinColumn(name = "pets_id"),
