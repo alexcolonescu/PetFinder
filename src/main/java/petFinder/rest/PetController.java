@@ -15,6 +15,7 @@ import petFinder.repository.OwnerRepository;
 import petFinder.repository.PetRepository;
 import petFinder.service.impl.PetService;
 
+import javax.persistence.ManyToMany;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -24,6 +25,8 @@ import java.util.Set;
 public class PetController {
     @Autowired
     private PetService service;
+
+
 
     /*@RequestMapping("/")
     public String viewHomePage(Model model){
@@ -55,7 +58,7 @@ public class PetController {
     @RequestMapping("/edit/{id}")
     public ModelAndView showEditProductForm(@PathVariable(name = "id")Long id){
         ModelAndView mav = new ModelAndView("edit_pet");
-
+       // Owner owner = service.get(id);
         Pet pet = service.get(id);
         mav.addObject("pet", pet);
 
@@ -83,25 +86,25 @@ public class PetController {
     @Autowired
     private ContactDetailsRepository contactDetailsRepository;
 
-    @PostMapping(value = "/pet")
-    public String savePet(@RequestBody Pet pet){
-        for (Owner owner: pet.getOwners()) {
-            ContactDetails foundContact = contactDetailsRepository.findByPhoneNumber(owner.getContactDetails().getPhoneNumber());
-            if(foundContact != null) {
-                //throw new ContactsAlreadyExist("Contacts already exist");
-                owner.setContactDetails(foundContact);
-                owner.setId(foundContact.getOwner().getId());
-            }
-            else {
-                owner.setContactDetails(contactDetailsRepository.save(owner.getContactDetails()));
-                ownerRepository.save(owner);
-            }
-        }
-
-        petRepository.save(pet);
-
-        return "all-pets";
-    }
+//    @PostMapping(value = "/pet")
+//    public String savePet(@RequestBody Pet pet){
+//        for (Owner owner: pet.getOwners()) {
+//            ContactDetails foundContact = contactDetailsRepository.findByPhoneNumber(owner.getContactDetails().getPhoneNumber());
+//            if(foundContact != null) {
+//                //throw new ContactsAlreadyExist("Contacts already exist");
+//                owner.setContactDetails(foundContact);
+//                owner.setId(foundContact.getOwner().getId());
+//            }
+//            else {
+//                owner.setContactDetails(contactDetailsRepository.save(owner.getContactDetails()));
+//                ownerRepository.save(owner);
+//            }
+//        }
+//
+//        petRepository.save(pet);
+//
+//        return "all-pets";
+//    }
 
     @GetMapping(value = "/pet/all")
     public String getAllPets(Model model){

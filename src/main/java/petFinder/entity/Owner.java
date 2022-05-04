@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -33,8 +34,8 @@ public class Owner {
     private ContactDetails contactDetails;
 
     @ToString.Exclude
-    @OneToMany(mappedBy = "owners")
+    @ManyToMany(mappedBy = "owners")
     @JsonIgnore
-    private Set<Pet> pets;
+    private Set<Pet> pets = new HashSet<>();
 
 }

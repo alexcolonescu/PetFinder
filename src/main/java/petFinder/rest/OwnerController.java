@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import petFinder.entity.Owner;
 import petFinder.repository.OwnerRepository;
+import petFinder.repository.PetRepository;
 
 import java.util.List;
 
@@ -15,6 +16,10 @@ public class OwnerController {
 
     @Autowired
     OwnerRepository ownerRepository;
+
+    @Autowired
+    private PetRepository petRepository;
+
 
     @GetMapping(value = "/owner/all")
     public List<Owner> getAllOwners(){
@@ -25,4 +30,5 @@ public class OwnerController {
     public void saveOwner(@RequestBody Owner owner){
         ownerRepository.save(owner);
     }
+
 }

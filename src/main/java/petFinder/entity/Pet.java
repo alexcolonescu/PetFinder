@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -18,6 +19,7 @@ public class Pet {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "pet_id")
     private Long id;
 
     @Column(nullable = false)
@@ -45,13 +47,13 @@ public class Pet {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime date;
 
-    @OneToMany
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(
             name = "pet_owners",
             joinColumns = @JoinColumn(name = "pets_id"),
             inverseJoinColumns = @JoinColumn(name = "owners_id")
     )
-    private Set<Owner> owners;
+    private Set<Owner> owners = new HashSet<>();
 
     @Enumerated(EnumType.STRING)
     @ElementCollection(targetClass = City.class)
