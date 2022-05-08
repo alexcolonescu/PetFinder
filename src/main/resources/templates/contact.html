@@ -1,84 +1,221 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Contact</title>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/png" th:href="@{/images/icons/dog.ico}">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQnN" crossorigin="anonymous">
-    <link th:href="@{/css/style.css}" rel="stylesheet"/>
-</head>
-<body style="background-color:#F5F5DC;">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/index">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/pet/all">Pets</a>
-            </li>
 
-        </ul>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/contact}">Contact</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    User menu
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Profile</a>
-                    <a class="dropdown-item" href="#">View borrowed pets</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" th:href="@{/logout}">Logout</a>
-                </div>
-            </li>
-        </ul>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pet Finder</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" th:href="@{/images/icons/dog.ico}">
+    <link rel="stylesheet" th:href="@{/plugins/bootstrap/bootstrap.min.css}">
+    <!-- ThemeFisher Icon -->
+    <link rel="stylesheet" th:href="@{/plugins/themefisher-fonts/themefisher-fonts.css}">
+    <!-- Light Box -->
+    <link rel="stylesheet" th:href="@{/plugins/magnific-popup/magnific-popup.css}">
+    <!-- animation css -->
+    <link rel="stylesheet" th:href="@{/plugins/animate/animate.css}">
+    <!-- slick slider -->
+    <link rel="stylesheet" th:href="@{/plugins/slick/slick.css}">
+
+    <!-- Revolution Slider -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{/plugins/modernizr.min.js}"></script>
+</head>
+
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Loader to display before content Load-->
+<div class="loading">
+
+    <!-- <img src="img/loader.gif" alt=""> -->
+
+    <div class="windows8 loading-position">
+        <div class="wBall" id="wBall_1">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_2">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_3">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_4">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_5">
+            <div class="wInnerBall"></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Navigation -section
+ =========================-->
+<nav class="navbar navbar-fixed-top navigation" >
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand logo" href="/index">
+                <img th:src="@{/images/logo3.png}" alt="">
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right menu">
+                <li><a href="/index">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/pets">Pets</a></li>
+                <li><a href="/owners">Owners</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
     </div>
 </nav>
-<section class="contact">
-    <div class="content">
-        <h2 align="center">Contact us</h2>
-    </div>
-    <br>
-    <br>
+
+<!-- Contact header-section
+  =========================-->
+<section class="page-header services-header" data-parallax="scroll" data-image-src="images/header/contact.png">
     <div class="container">
-        <div class="contactInfo">
-            <div class="box">
-                <div class="icon"><i class="fas fa-map-marker" aria-hidden="true"></i></div>
-                <div class="text">
-                    <h3>Address</h3>
-                    <p>Șoseaua Păcurari nr. 121<br>Iasi</p>
-                </div>
-            </div>
-            <div class="box">
-                <div class="icon"><i class="fas fa-phone" aria-hidden="true"></i></div>
-                <div class="text">
-                    <h3>Phone</h3>
-                    <p>+40 792 111 111</p>
-                </div>
-            </div>
-            <div class="box">
-                <div class="icon"><i class="fas fa-envelope-o" aria-hidden="true"></i></div>
-                <div class="text">
-                    <h3>Email</h3>
-                    <p>dogInc@gmail.com</p>
-                </div>
-            </div>
-            <div class="addressMap">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21703.163121862865!2d27.544792885092285!3d47.15990319673218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cae4c8151fe80b%3A0x9cf31fc85391ffff!2sAnimax!5e0!3m2!1sen!2sro!4v1649512823424!5m2!1sen!2sro"
-                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Contact Us</h1>
             </div>
         </div>
     </div>
 </section>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- Google map Study Sections
+=========================-->
+<section class="contact-map">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 padding-0">
+                <!-- map -->
+                <div id="map" style = "position:relative; top:0; left:40%; z-index:30;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21703.163121862865!2d27.544792885092285!3d47.15990319673218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cae4c8151fe80b%3A0x9cf31fc85391ffff!2sAnimax!5e0!3m2!1sen!2sro!4v1649512823424!5m2!1sen!2sro"
+                            allowfullscreen="" loading="lazy" style="width:50%; height:100%;"></iframe>
+                </div>
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <div class="contact-img">
+                        <img src="images/contact/contact.jpg" alt="">
+                    </div>
+                    <div class="contact-content">
+                        <div class="content-title-section">
+                            <h3 class="content-title">Pet Finder</h3>
+                        </div>
+                        <div class="home-address">
+                            <div class="flex">
+                                <div class="contact-icon">
+                                    <i class="tf-ion-ios-home-outline"></i>
+                                </div>
+                                <p class="ct-info">Șoseaua Păcurari nr. 121, Iasi.</p>
+                            </div>
+                        </div>
+                        <div class="web-address">
+                            <div class="flex">
+                                <div class="contact-icon">
+                                    <i class="tf-global"></i>
+                                </div>
+                                <a href="https://animax.ro/" class="ct-info">https://animax.ro/</a>
+                            </div>
+                        </div>
+                        <div class="phone-address">
+                            <div class="flex">
+                                <div class="contact-icon">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                </div>
+                                <p class="ct-info">+40 792 111 111 (Mobile)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="container">
+                <div class="footer-top">
+                    <div class="col-md-6">
+                        <!-- footer About section
+                        ========================== -->
+                        <div class="footer-about">
+                            <h3 class="footer-title">About</h3>
+                            <p>A pet can be a reliable friend to anyone. <br>
+                                Unconditional moral support, better immunity and the<br>
+                                urge to live an active life are just some of the benefits<br>
+                                that a pet brings to a family's life.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <!-- footer Address section
+                        ========================== -->
+                        <div class="footer-address">
+                            <h3 class="footer-title">Address</h3>
+                            <p>Șoseaua Păcurari nr. 121, Iasi</p>
+                            <p class="contact-address">
+                                Contact us : <a href="tel:+40792111111">+40 792 111 111</a> <br>
+                                Write us : <a href="mailto:dogInc@gmail.com">dogInc@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-nav text-center">
+                    <div class="col-md-12">
+                        <ul>
+                            <li><a href="/index">Home</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/pets">Pets</a></li>
+                            <li><a href="/owners">Owners</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="/logout">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="col-md-12">
+                        <div class="copyright">
+                            <p>&copy; 2022 All rights reserved. <br>
+                                Design and Developed By <a href="https://themefisher.com">Themefisher.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script th:src="@{/plugins/jquery.min.js}"></script>
+
+<script th:src="@{/plugins/bootstrap/bootstrap.min.js}"></script>
+<!-- slick slider -->
+<script th:src="@{/plugins/slick/slick.min.js}"></script>
+<!-- filter -->
+<script th:src="@{/plugins/filterizr/jquery.filterizr.min.js}"></script>
+<!-- Lightbox -->
+<script th:src="@{/plugins/magnific-popup/jquery.magnific-popup.min.js}"></script>
+<!-- Parallax -->
+<script th:src="@{/plugins/parallax.min.js}"></script>
+<!-- Video -->
+<script th:src="@{/plugins/jquery.vide.js}"></script>
+
+
+<script th:src="@{/js/script.js}"></script>
 </body>
 </html>
