@@ -35,4 +35,7 @@ public class OwnerService {
             e.printStackTrace();
         }
     }
+
+    // Add scheduling job (5:48 from https://www.youtube.com/watch?v=uxV-3947fiM)
+
 }
