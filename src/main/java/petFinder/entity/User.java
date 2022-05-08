@@ -20,8 +20,14 @@ public class User implements UserDetails {
     @Column(name = "user_id")
     private Long id;
 
+    @Column(nullable = false, length = 30)
+    private String fullName;
+
     @Column(nullable = false, unique = true)
     private String username;
+
+    @Column(nullable = false, length = 30, unique = true)
+    private String email;
 
     @Column(nullable = false)
     private String password;
@@ -35,30 +41,17 @@ public class User implements UserDetails {
     @Column(name = "enabled", nullable = false)
     private boolean enabled;
 
-    @Column(nullable = false, length = 30)
-    private String fullName;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    private ContactDetails contactDetails;
-
-    @Column(nullable = false, length = 30, unique = true)
-    private String email;
-
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles",
         joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"),
         inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
-    @OneToMany(mappedBy = "user")
-    private Set<Pet> pets;
-
     @Transient
     private String passwordConfirm;
 
     public User(User user){
         this.enabled = user.isEnabled();
-        this.contactDetails = user.getContactDetails();
         this.roles = user.getRoles();
         this.username = user.getUsername();
         this.fullName = user.getFullName();
@@ -67,7 +60,6 @@ public class User implements UserDetails {
         this.accountNonExpired = user.isAccountNonExpired();
         this.accountNonLocked = user.isAccountNonLocked();
         this.credentialsNonExpired = user.isCredentialsNonExpired();
-        this.pets = user.getPets();
     }
 
     public Long getId() {
@@ -148,22 +140,6 @@ public class User implements UserDetails {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
-    }
-
-    public ContactDetails getContactDetails() {
-        return contactDetails;
-    }
-
-    public void setContactDetails(ContactDetails contactDetails) {
-        this.contactDetails = contactDetails;
-    }
-
-    public Set<Pet> getPets() {
-        return pets;
-    }
-
-    public void setPets(Set<Pet> pets) {
-        this.pets = pets;
     }
 
     public String getEmail() {
