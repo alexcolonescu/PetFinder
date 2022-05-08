@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>About Pet Finder</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" th:href="@{/images/icons/dog.ico}">
+    <link rel="stylesheet" th:href="@{/plugins/bootstrap/bootstrap.min.css}">
+    <!-- ThemeFisher Icon -->
+    <link rel="stylesheet" th:href="@{/plugins/themefisher-fonts/themefisher-fonts.css}">
+    <!-- Light Box -->
+    <link rel="stylesheet" th:href="@{/plugins/magnific-popup/magnific-popup.css}">
+    <!-- animation css -->
+    <link rel="stylesheet" th:href="@{/plugins/animate/animate.css}">
+    <!-- slick slider -->
+    <link rel="stylesheet" th:href="@{/plugins/slick/slick.css}">
+
+    <!-- Revolution Slider -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{/plugins/modernizr.min.js}"></script>
+</head>
+
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Loader to display before content Load-->
+<div class="loading">
+
+    <!-- <img src="img/loader.gif" alt=""> -->
+
+    <div class="windows8 loading-position">
+        <div class="wBall" id="wBall_1">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_2">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_3">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_4">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_5">
+            <div class="wInnerBall"></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Navigation -section
+ =========================-->
+<nav class="navbar navbar-fixed-top navigation" >
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand logo" href="/index">
+                <img th:src="@{/images/logo3.png}" alt="">
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right menu">
+                <li><a href="/index">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/pets">Pets</a></li>
+                <li><a href="/owners">Owners</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div>
+</nav>
+
+<section class="page-header services-header" data-parallax="scroll" data-image-src="images/header/about.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">About Pet Finder</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Case Study Sections
+ =========================-->
+
+<section class="case-study">
+    <div class="text-center">
+        <h2 class="title">About Pet Finder</h2>
+    </div>
+    <!-- Case Study Description
+      top section -->
+    <div class="case-study-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- inner sub-title -->
+                    <div class="content">
+                        <h4 class="inner-title">Why adopting a puppy?</h4>
+                        <p>
+                            A pet can be a reliable friend to anyone. Unconditional moral support, better immunity, and the urge to live an active life are just some of the benefits that a pet brings to a family's life.
+                            <br><br>
+                            Adopting a pet is a great idea that brings many benefits to both the future owner and the community.
+                            <br><br>
+                            Here is a list of the top 5 reasons why it is better to adopt than to buy a pet:
+                        </p>
+                        <ol style = "font-size: 16px; color: rgba(175, 175, 175, 0.8);">
+
+                            <li>You save two lives</li>
+                            Adopting a pet from a shelter involves creating a free space for another animal that can also take care of the shelter. So when you adopt, you not only save the life of your new companion but also give a chance at life for another soul.
+
+                            In private shelters, dogs are received and cared for the rest of their lives, a new place is released when a dog is adopted or dies.
+
+                            In state shelters, however, things are not as good, if a puppy is not adopted within 14 days, he must be euthanized, according to the law.
+
+                            <li>Fight the illegal trade in pets</li>
+                            By 2020, around 46,000 dogs have been traded between EU countries each month, most of them unregistered. In addition to threatening public health and animal welfare, the illegal trade in pets has also become a major source of income for international organized crime.
+
+                            As in any other field, the offer of illegal trade in pets is given by demand, so with every adoption in a shelter, an animal is saved from illegal trade.
+
+                            <li>Adopted animals have fewer health problems</li>
+                            Most dogs that end up in shelters in Romania are known as "strays" or "half-breeds", which means they have a better genetic background and fewer health problems. Living on the streets, they have become more adaptable and balanced, with a longer life expectancy than other breeds.
+
+                            <li>It could be free</li>
+                            The pandemic has changed people's behavior regarding the need for interaction and moral support, so some studies say that the population's interest in a pet increased by 155% during the pandemic.
+
+                            In Romania, the acquisition cost for the most popular dog breeds reaches somewhere around 1,500 lei.
+
+                            However, these are not the only amounts that must be taken into account, for sterilization, microchipping and training, a cost of 1,350 lei is added in the case of puppies and 500 lei in the case of cats.
+
+                            These costs decrease to 0 when it comes to adopting a pet in Romania. There are many animal shelters that deal with microchipping, vaccination, sterilization and deworming of animals. Thus, these costs disappear for those who decide to adopt, the only expenses that must be taken into account are those for the care and maintenance of the pet.
+
+                            <li>You can be an example to those around you</li>
+                            We know the impact that personal example has on our daily lives and that is why, during the holidays, together with our friends and colleagues from PetFinder, we participated in the campaign to save stray dogs.
+
+                        </ol>
+                        <p>
+                        The "green viruses" adopted shelter dogs and in turn urged other animal lovers to adopt, resulting in a record number of adoptions during this period. A lot of puppies got a second chance, being adopted by loving families with whom they will continue their happy life.
+                        <br><br>
+
+                        In this way, we urge you to choose the adoption of animals instead of the purchase and to urge all acquaintances to do the same. There are thousands of animals in the shelters in Romania, which start every day with the hope that today will be the day when they will meet their new owners, who will love them until the end of their lives.
+
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="container">
+                <div class="footer-top">
+                    <div class="col-md-6">
+                        <!-- footer About section
+                        ========================== -->
+                        <div class="footer-about">
+                            <h3 class="footer-title">About</h3>
+                            <p>A pet can be a reliable friend to anyone. <br>
+                                Unconditional moral support, better immunity and the<br>
+                                urge to live an active life are just some of the benefits<br>
+                                that a pet brings to a family's life.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <!-- footer Address section
+                        ========================== -->
+                        <div class="footer-address">
+                            <h3 class="footer-title">Address</h3>
+                            <p>Șoseaua Păcurari nr. 121, Iasi</p>
+                            <p class="contact-address">
+                                Contact us : <a href="tel:+40792111111">+40 792 111 111</a> <br>
+                                Write us : <a href="mailto:dogInc@gmail.com">dogInc@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-nav text-center">
+                    <div class="col-md-12">
+                        <ul>
+                            <li><a href="/index">Home</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/pets">Pets</a></li>
+                            <li><a href="/owners">Owners</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="/logout">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="col-md-12">
+                        <div class="copyright">
+                            <p>&copy; 2022 All rights reserved. <br>
+                                Design and Developed By <a href="https://themefisher.com">Themefisher.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script th:src="@{/plugins/jquery.min.js}"></script>
+
+<script th:src="@{/plugins/bootstrap/bootstrap.min.js}"></script>
+<!-- slick slider -->
+<script th:src="@{/plugins/slick/slick.min.js}"></script>
+<!-- filter -->
+<script th:src="@{/plugins/filterizr/jquery.filterizr.min.js}"></script>
+<!-- Lightbox -->
+<script th:src="@{/plugins/magnific-popup/jquery.magnific-popup.min.js}"></script>
+<!-- Parallax -->
+<script th:src="@{/plugins/parallax.min.js}"></script>
+<!-- Video -->
+<script th:src="@{/plugins/jquery.vide.js}"></script>
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
+<script th:src="@{/plugins/google-map/gmap.js}"></script>
+
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <title>Pets Database</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" th:href="@{/images/icons/dog.ico}">
+    <link rel="stylesheet" th:href="@{/plugins/bootstrap/bootstrap.min.css}">
+    <!-- ThemeFisher Icon -->
+    <link rel="stylesheet" th:href="@{/plugins/themefisher-fonts/themefisher-fonts.css}">
+    <!-- Light Box -->
+    <link rel="stylesheet" th:href="@{/plugins/magnific-popup/magnific-popup.css}">
+    <!-- animation css -->
+    <link rel="stylesheet" th:href="@{/plugins/animate/animate.css}">
+    <!-- slick slider -->
+    <link rel="stylesheet" th:href="@{/plugins/slick/slick.css}">
+
+    <!-- Revolution Slider -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{/plugins/modernizr.min.js}"></script>
+</head>
+<body>
+
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Loader to display before content Load-->
+<div class="loading">
+
+    <!-- <img src="img/loader.gif" alt=""> -->
+
+    <div class="windows8 loading-position">
+        <div class="wBall" id="wBall_1">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_2">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_3">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_4">
+            <div class="wInnerBall"></div>
+        </div>
+        <div class="wBall" id="wBall_5">
+            <div class="wInnerBall"></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Navigation -section
+ =========================-->
+<nav class="navbar navbar-fixed-top navigation" >
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand logo" href="/index">
+                <img th:src="@{/images/logo3.png}" alt="">
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right menu">
+                <li><a href="/index">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="/pets">Pets</a></li>
+                <!--<li><a href="blog.html">Blog</a></li>-->
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div>
+</nav>
+
+<section class="page-header services-header" data-parallax="scroll" data-image-src="images/header/findpet.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Find a Pet</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="case-study">
+    <div class="text-center">
+        <h2 class="title">Pets Database</h2>
+    </div>
+    <div class="case-study-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="content">
+                        <div class="p-2">
+                            <a class="h2" th:href="@{/owners}">List Owners</a>
+                        </div>
+                        <div class="p-2">
+                            <a class="h2" th:href="@{/owners/new}">Create Owner</a>
+                        </div>
+                        <div class="p-2">
+                            <a class="h2" th:href="@{/pets}">List Pets</a>
+                        </div>
+                        <div class="p-2">
+                            <a class="h2" th:href="@{/pets/new}">Create Pets</a>
+                        </div>
+                        <div class="p-2">
+                            <a class="h2" th:href="@{/contacts}">List Contacts</a>
+                        </div>
+                        <div class="p-2">
+                            <a class="h2" th:href="@{/contacts/new}">Create Contact</a>
+                        </div>
+
+                        <div th:if="${message}" class="alert alert-success text-center">
+                            [[${message}]]
+                        </div>
+                       <table class="table table-dark">
+                                <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Breed</th>
+                                    <th scope="col">Age</th>
+                                    <th scope="col">Vaccinated</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Created Date</th>
+                                    <th scope="col">Owner name</th>
+                                    <th scope="col">Owner email</th>
+                                    <th scope="col">City</th>
+                                    <div sec:authorize="hasRole('ROLE_ADMIN')">
+                                        <th scope="col">Actions</th>
+                                    </div>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <th:block th:each = "pet: ${petList}">
+                                    <tr>
+                                        <td>[[${pet.id}]]</td>
+                                        <td>[[${pet.breed}]]</td>
+                                        <td>[[${pet.age}]]</td>
+                                        <td>[[${pet.vaccinated}]]</td>
+                                        <td>[[${pet.description}]]</td>
+                                        <td>[[${pet.date}]]</td>
+                                        <td>[[${pet.owner.name}]]</td>
+                                        <td>[[${pet.owner.email}]]</td>
+                                        <td>[[${pet.city}]]</td>
+                                        <div sec:authorize="hasRole('ROLE_ADMIN')">
+                                            <td>
+                                                <a th:href="@{'/pets/edit/' + ${pet.id}}">Edit</a>
+                                                <a th:href="@{'/pets/delete/' + ${pet.id}}">Delete</a>
+                                            </td>
+                                        </div>
+                                    </tr>
+                                </th:block>
+                                </tbody>
+                            </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="container">
+                <div class="footer-top">
+                    <div class="col-md-6">
+                        <!-- footer About section
+                        ========================== -->
+                        <div class="footer-about">
+                            <h3 class="footer-title">About</h3>
+                            <p>A pet can be a reliable friend to anyone. <br>
+                                Unconditional moral support, better immunity and the<br>
+                                urge to live an active life are just some of the benefits<br>
+                                that a pet brings to a family's life.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <!-- footer Address section
+                        ========================== -->
+                        <div class="footer-address">
+                            <h3 class="footer-title">Address</h3>
+                            <p>Șoseaua Păcurari nr. 121, Iasi</p>
+                            <p class="contact-address">
+                                Contact us : <a href="tel:+40792111111">+40 792 111 111</a> <br>
+                                Write us : <a href="mailto:dogInc@gmail.com">dogInc@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-nav text-center">
+                    <div class="col-md-12">
+                        <ul>
+                            <li><a href="/index">Home</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/pets">Pets</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="/logout">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="col-md-12">
+                        <div class="copyright">
+                            <p>&copy; 2022 All rights reserved. <br>
+                                Design and Developed By <a href="https://themefisher.com">Themefisher.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script th:src="@{/plugins/jquery.min.js}"></script>
+
+<script th:src="@{/plugins/bootstrap/bootstrap.min.js}"></script>
+<!-- slick slider -->
+<script th:src="@{/plugins/slick/slick.min.js}"></script>
+<!-- filter -->
+<script th:src="@{/plugins/filterizr/jquery.filterizr.min.js}"></script>
+<!-- Lightbox -->
+<script th:src="@{/plugins/magnific-popup/jquery.magnific-popup.min.js}"></script>
+<!-- Parallax -->
+<script th:src="@{/plugins/parallax.min.js}"></script>
+<!-- Video -->
+<script th:src="@{/plugins/jquery.vide.js}"></script>
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
+<script th:src="@{/plugins/google-map/gmap.js}"></script>
+
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>
