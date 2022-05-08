@@ -18,7 +18,7 @@ public class Pet {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(nullable = false)
     private int age;
@@ -27,38 +27,22 @@ public class Pet {
     private String breed;
 
     @Column(nullable = false)
-    private double weight;
-
-    @Column(nullable = false)
     private boolean vaccinated;
-
-    @Column(nullable = false)
-    private int price;
 
     @Column(nullable = false)
     private String description;
 
     @Column
-    private boolean available;
-
-    @Column
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime date;
 
-    @ManyToMany
-    @JoinTable(
-            name = "pet_owners",
-            joinColumns = @JoinColumn(name = "pets_id"),
-            inverseJoinColumns = @JoinColumn(name = "owners_id")
-    )
-    private Set<Owner> owners;
+    @ManyToOne
+    @JoinColumn(name="owner_id")
+    private Owner owner;
 
     @Enumerated(EnumType.STRING)
     @ElementCollection(targetClass = City.class)
     private Set<City> city;
-
-    @ManyToOne
-    private User user;
 }
 
 
