@@ -39,17 +39,16 @@ a.Register
   Log in
   Log out
   Activation Token
-
-
+  
 b. Create user admin at the beginning of the run that allows raw operations and allows access to all functionalities of the application
 
 c. CRUD operations for animals and owners
 
-d.Scheduller for new owners with faker
+d. Scheduller for new owners with faker
 
 e. Implementing csv in DB for owners
 
-f.DTO stream for faster code writing
+f. DTO stream for faster code writing
 
 ### Bibliography
 https://themefisher.com/products/fiction-bootstrap-agency-temp
