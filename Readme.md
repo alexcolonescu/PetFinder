@@ -1,7 +1,16 @@
-<h1>
-Pet finder app
-</h1>
-![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7BP2fl6HfWc2sIeCm5NIym6V_LDLpp3Hi7A&usqp=CAU)
+# Pet Finder
+
+## Find your new best friend
+
+![Pet Finder app](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7BP2fl6HfWc2sIeCm5NIym6V_LDLpp3Hi7A&usqp=CAU)
+
+
+A pet can be a reliable friend to anyone.
+Unconditional moral support, better immunity and the
+urge to live an active life are just some of the benefits
+that a pet brings to a family's life.
+
+
 ### Instruction file
 To find all functionallity connect with :
 user: admin
