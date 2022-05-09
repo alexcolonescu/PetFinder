@@ -64,13 +64,13 @@
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <input type="password" th:field="*{password}" class="input100" required>
+                    <input type="password" th:field="*{password}" class="input100" required minlength="4">
                     <span class="focus-input100"></span>
                     <span class="label-input100">Password</span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Password confirmation is required">
-                    <input type="password" th:field="*{passwordConfirm}" class="input100" required>
+                    <input type="password" th:field="*{passwordConfirm}" class="input100" required minlength="4">
                     <span class="focus-input100"></span>
                     <span class="label-input100">Password Confirm</span>
                 </div>

@@ -1,4 +1,4 @@
-package petFinder.service.impl;
+package petFinder.service.user.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import petFinder.entity.User;
 import petFinder.entity.Role;
-import petFinder.service.UserService;
+import petFinder.service.user.UserService;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
@@ -41,6 +41,6 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     private UserDetails buildUserForAuthentication(User user, List<GrantedAuthority> authorities){
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), user.isEnabled(),
-                true, true, true, authorities);
+                user.isAccountNonExpired(), user.isCredentialsNonExpired(), user.isAccountNonLocked(), authorities);
     }
 }

@@ -1,4 +1,4 @@
-package petFinder.service.impl;
+package petFinder.service.user.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -8,7 +8,10 @@ import petFinder.entity.User;
 import petFinder.entity.Role;
 import petFinder.repository.RoleRepository;
 import petFinder.repository.UserRepository;
-import petFinder.service.UserService;
+import petFinder.service.email.BodyBuilderService;
+import petFinder.service.email.EmailSender;
+import petFinder.service.token.RandomTokenService;
+import petFinder.service.user.UserService;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,13 +23,26 @@ public class UserServiceImpl implements UserService {
     private final RoleRepository roleRepository;
 
     @Autowired
+    BodyBuilderService bodyBuilderService;
+
+    @Autowired
+    EmailSender emailSender;
+
+    @Autowired
+    RandomTokenService randomTokenService;
+
+    @Autowired
     public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
     }
 
     public User findUserByEmail(String email){
-        return userRepository.findByEmail(email);
+        return userRepository.findUserByEmail(email);
+    }
+
+    public User findUserByRandomToken(String randomToken) {
+        return userRepository.findByRandomToken(randomToken);
     }
 
     public User findUserByUserName(String userName) {
@@ -49,6 +65,8 @@ public class UserServiceImpl implements UserService {
     public User saveUser(User u){
         User user = new User(u);
         user.setPassword(new BCryptPasswordEncoder().encode(u.getPassword()));
+        user.setRandomToken(randomTokenService.randomToken(u));
+        emailSender.sendEmail(user.getEmail(), "Activate your PetFinder Account", bodyBuilderService.emailBody(user));
         u.getRoles().forEach(role -> {
             final Role roleByName = roleRepository.findByName(role.getName());
             if (roleByName == null)

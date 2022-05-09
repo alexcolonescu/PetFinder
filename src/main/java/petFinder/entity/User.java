@@ -38,8 +38,14 @@ public class User implements UserDetails {
 
     private boolean credentialsNonExpired;
 
-    @Column(name = "enabled", nullable = false)
-    private boolean enabled;
+    @Column(nullable = false)
+    private boolean enabled = false;
+
+    @Column(nullable = false)
+    private String randomToken;
+
+    @Transient
+    private String randomTokenEmail;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles",
@@ -60,6 +66,21 @@ public class User implements UserDetails {
         this.accountNonExpired = user.isAccountNonExpired();
         this.accountNonLocked = user.isAccountNonLocked();
         this.credentialsNonExpired = user.isCredentialsNonExpired();
+    }
+
+    public User(String username, String password, boolean accountNonExpired, boolean accountNonLocked,
+                  boolean credentialsNonExpired, boolean enabled, String fullName,
+                  String email, Set<Role> roles, String passwordConfirm) {
+        this.username = username;
+        this.password = password;
+        this.accountNonExpired = accountNonExpired;
+        this.accountNonLocked = accountNonLocked;
+        this.credentialsNonExpired = credentialsNonExpired;
+        this.enabled = enabled;
+        this.fullName = fullName;
+        this.email = email;
+        this.roles = roles;
+        this.passwordConfirm = passwordConfirm;
     }
 
     public Long getId() {
@@ -149,6 +170,14 @@ public class User implements UserDetails {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getRandomToken(){ return randomToken;}
+
+    public void setRandomToken(String randomToken){ this.randomToken = randomToken;}
+
+    public String getRandomTokenEmail(String randomTokenEmail){ return randomTokenEmail;}
+
+    public void setRandomTokenEmail(String randomTokenEmail){ this.randomTokenEmail = randomTokenEmail;}
 
     public String getPasswordConfirm() {
         return passwordConfirm;

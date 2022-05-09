@@ -10,7 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import petFinder.service.impl.CustomUserDetailsService;
+import petFinder.service.user.impl.CustomUserDetailsService;
 
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @EnableWebSecurity
@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/owners_csv", "/new_owners", "save_owners").hasAnyAuthority("ROLE_ADMIN")
                 .antMatchers("/new_pet", "/save_pet", "/edit_pets/**", "/delete_pet/**").hasAnyAuthority("ROLE_ADMIN")
                 //.antMatchers("/redirect:/").hasAnyAuthority("ROLE_ADMIN")
-                .antMatchers("/login", "/register", "/resources/**", "/static/**", "/css/**", "/plugins/**", "/js/**", "/images/**", "/vendor/**", "/fonts/**").permitAll()
+                .antMatchers("/login", "/register", "/resources/**", "/static/**", "/css/**", "/plugins/**", "/js/**", "/images/**", "/vendor/**", "/fonts/**", "/activation/**", "/activation-success").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()

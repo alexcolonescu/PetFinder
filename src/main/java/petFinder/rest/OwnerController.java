@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import petFinder.entity.Owner;
 import petFinder.repository.OwnerRepository;
-import petFinder.service.OwnerService;
+import petFinder.service.owner.OwnerService;
 
 import java.util.List;
 
