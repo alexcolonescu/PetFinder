@@ -1,14 +1,20 @@
 package petFinder.service.owner;
 
+import com.github.javafaker.Faker;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import petFinder.entity.Owner;
 import petFinder.repository.OwnerRepository;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.Random;
 
 @Service
 public class OwnerService {
@@ -18,6 +24,11 @@ public class OwnerService {
 
     String line = "";
 
+    Logger log = LoggerFactory.getLogger(OwnerService.class);
+
+    /**
+     * Importing CSV file into SQL database
+     */
     public void saveOwnerData(){
 
         try {
@@ -36,6 +47,27 @@ public class OwnerService {
         }
     }
 
-    // Add scheduling job (5:48 from https://www.youtube.com/watch?v=uxV-3947fiM)
+    /**
+     * Schedule to add into the Owners database some random Owners
+     * Using Faker library
+     */
+    @Scheduled(fixedRate = 60000)
+    public void addOwner(){
+        Owner owner= new Owner();
+        Faker faker = new Faker();
+        String namesRandom  = faker.name().fullName().toString().toLowerCase(Locale.ROOT);
+        owner.setName(String.valueOf(namesRandom));
+        owner.setEmail(owner.getName().replaceAll("\\s", "") + "@yahoo.com");
+        owner.setPhoneNumber("0734567" + new Random().nextInt(9) +new Random().nextInt(9) + new Random().nextInt(9));
+        ownerRepository.save(owner);
+        System.out.println("Add service call in " + new Date().toString() );
+    }
 
+    @Scheduled(cron = "0/15 * * * * * ")
+    public void fetchDBJob(){
+        List<Owner> owners = ownerRepository.findAll();
+        System.out.println("Fetch service call in  " + new Date().toString() );
+        System.out.println("No of record fetched "+ owners.size());
+        log.info("Owner : {}", owners);
+    }
 }
