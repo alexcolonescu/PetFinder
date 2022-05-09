@@ -16,31 +16,40 @@ To find all functionallity connect with :
 user: admin
 ps: password1
 
-###User manual
-###Project contain
+1. PetFinder is intended to be a virtual puppy shelter where several puppy owners want to donate their pets.
 
-- [x] Register user
-- [x] Login
-- [x] Logout
-- [x] Crud operation
-- [x] Try cath exception handling
-- [x] Relation one to many and many to one
-- [x] Add a csv file
-- [x] Scheduller to automated added name and email addres with faker
-- [x] Optional
-- [x] Git
-- [x] message if something don't work good
-- [x] controller
-- [x] service
-- [x] thymeleaf
-- [x] spring
-- [x] entity
-- [x] lombok
-- [x] for database it's use mysql
+2. Technologies used:
+java:
+spring boot
+jpa repository
+thymeleaf
+faker
+spring boot security
+bootstrap
+dto
+JUniTest
+Jquery
+pom.xml
+Html
+Css
+JavaScript
 
-###References
+3.Functionalities
+a.Register
+  Log in
+  Log out
+  Activation Token
 
-1. Themefisher.com
-2. google maps
-3. Google script
 
+b. Create user admin at the beginning of the run that allows raw operations and allows access to all functionalities of the application
+
+c. CRUD operations for animals and owners
+
+d.Scheduller for new owners with faker
+
+e. Implementing csv in DB for owners
+
+f.DTO stream for faster code writing
+
+### Bibliography
+https://themefisher.com/products/fiction-bootstrap-agency-temp
