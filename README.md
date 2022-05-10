@@ -10,11 +10,6 @@ Unconditional moral support, better immunity and the
 urge to live an active life are just some of the benefits
 that a pet brings to a family's life.
 
-**Table of Contents**
-
-[TOCM]
-
-[TOC]
 
 ### Purpose of the project
 PetFinder is intended to be a virtual puppy shelter where several puppy owners want to donate their pets. This project has the main purpose to use the knowledge gained during the Java course at IT School: working with Spring Boot, CRUD operations, register, login.
